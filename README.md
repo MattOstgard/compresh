@@ -1,3 +1,5 @@
+![compresh screenshot](./help/header.jpg)
+
 # Compresh
 A refreshingly easy WebGL image compression tool.
 
