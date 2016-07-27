@@ -26,10 +26,10 @@ Compressing to different webgl texture formats requires an artist to install mul
 
 ### ATC on OS X
 Compresh does not currently support ATC because third party converters with OSX/Unix support could not be found. There are a couple of things that might support it in the future (Compressonator or Crunch), but in the meantime OSX users will have to use Wine to install and run Compressonator. Here are instructions:
-1. Download and install [xQuartz](https://www.xquartz.org/) which is required for wine to work.
-2. Download and install [Wine](https://www.winehq.org/download/)
-3. Download [32 bit version of compressonator](http://developer.amd.com/tools-and-sdks/archive/games-cgi/the-compressonator/)
-4. To install compressonator start `Wine Staging`, cd to where you downloaded compressonator, enter `wine msiexec /i Compressonator.2008-12-18-v1.50.1731.msi`
-5. Setup with all of the default settings.
-6. In finder browse to (or press cmd+shift+g and paste this): `~/.wine/drive_c/Program Files/AMD/The Compressonator 1.50/` then double click `TheCompressonator.exe` to run it.
-7. You can now open images and convert them. Access your computer's directories through the `Z:` Drive
+  1. Download and install [xQuartz](https://www.xquartz.org/) which is required for wine to work.
+  2. Download and install [Wine](https://www.winehq.org/download/)
+  3. Download [32 bit version of compressonator](http://developer.amd.com/tools-and-sdks/archive/games-cgi/the-compressonator/)
+  4. To install compressonator start `Wine Staging`, cd to where you downloaded compressonator, enter `wine msiexec /i Compressonator.2008-12-18-v1.50.1731.msi`
+  5. Setup with all of the default settings.
+  6. In finder browse to (or press cmd+shift+g and paste this): `~/.wine/drive_c/Program Files/AMD/The Compressonator 1.50/` then double click `TheCompressonator.exe` to run it.
+  7. You can now open images and convert them. Access your computer's directories through the `Z:` Drive
