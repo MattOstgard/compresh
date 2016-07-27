@@ -4,10 +4,10 @@
 A refreshingly easy WebGL image compression tool.
 
 ### What it is?
-Compresh makes converting to device specific GPU compressed image formats drag-and-drop easy. GPU compressed images allow more textures in memory at once than regular image formats like jpg or png at close to the same download size (assuming the server is setup to gzip files). Compresh is currently in alpha and has limited options.
+Compresh makes converting to device specific GPU compressed image formats drag-and-drop easy. GPU compressed images allow more textures in memory at once than regular image formats like jpg or png, at close to the same download size (assuming the server is setup to auto gzip files). Compresh is currently in alpha and has limited options.
 
 ### Why Compresh?
-Compressing to different webgl texture formats requires an artist to install multiple tools and learn more options than are really necessary in most cases. Compresh tries to simplify that process to make the conversion process quick and easy so artists can get back to doing what they love rather than doing a bunch of busy work.
+Compressing to different webgl texture formats requires an artist to install multiple tools, for multiple formats, which are different depending on the device platform, and with a plethora of options. Compresh tries to simplify that process to make the conversion process quick and easy, creating all necessary formats for different devices with appropriate options depending on the supplied images, so artists can get back to doing what they love rather than doing a bunch of busy work.
 
 ### Install Instructions
 - Download [builds/compresh_osx.tar.gz](https://github.com/MattOstgard/compresh/blob/master/builds/compresh_osx.tar.gz?raw=true)
@@ -25,7 +25,7 @@ Compressing to different webgl texture formats requires an artist to install mul
 - PVRTC (iOS format) requires textures to be square and the image will be resized to square based on the largest length between width and height. Other formats will not be made square.
 
 ### ATC on OS X
-Compresh does not currently support ATC because third party converters with OSX/Unix support could not be found. There are a couple of things that might support it in the future (Compressonator or Crunch), but in the meantime OSX users will have to use Wine to install and run Compressonator. Here are instructions:
+ATC is AMD's texture format which is used on some Android phones with Qualcomm chipsets. While Qualcomm chipsets also support ETC1, ATC is preferred because it can store an alpha channel, while ETC1 cannot and requires an extra texture to represent alpha. Compresh does not currently support ATC because third party converters with OSX/Unix support could not be found. There are a couple of things that might have OSX support in the future, but in the meantime OSX users will have to use Wine to install and run Compressonator. Here are instructions:
   1. Download and install [xQuartz](https://www.xquartz.org/) which is required for wine to work.
   2. Download and install [Wine](https://www.winehq.org/download/)
   3. Download [32 bit version of compressonator](http://developer.amd.com/tools-and-sdks/archive/games-cgi/the-compressonator/)
