@@ -38,5 +38,5 @@ ATC is AMD's texture format which is used on some Android phones with Qualcomm c
 Compresh uses the following technologies:
 - [Electron](https://github.com/electron/electron/blob/master/README.md), Copyright (c) 2014 GitHub Inc.
 - [Chromium](https://www.chromium.org/), Copyright (c) 2014 The Chromium Authors. All rights reserved.
-- [Crunch-OSX](https://github.com/BKcore/crunch-osx), Copyright (c) 2010-2016 Richard Geldreich, Jr. and Binomial LLC
+- [Crunch-OSX](https://github.com/BKcore/crunch-osx), Ported by [Thibaut Despoulain](https://github.com/BKcore), Copyright (c) 2010-2016 Richard Geldreich, Jr. and Binomial LLC
 - [PVRTexToolCLI](https://community.imgtec.com/developers/powervr/tools/pvrtextool/), Copyright (c) 2016 Imagination Technologies
