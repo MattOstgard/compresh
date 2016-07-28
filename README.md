@@ -33,3 +33,10 @@ ATC is AMD's texture format which is used on some Android phones with Qualcomm c
   5. Setup with all of the default settings.
   6. In finder browse to (or press cmd+shift+g and paste this): `~/.wine/drive_c/Program Files/AMD/The Compressonator 1.50/` then double click `TheCompressonator.exe` to run it.
   7. You can now open images and convert them. Access your computer's directories through the `Z:` Drive
+
+### Attribution
+Compresh is built using [Electron](https://github.com/electron/electron/blob/master/README.md), Copyright (c) 2014 GitHub Inc.
+Electron uses [Chromium](https://www.chromium.org/), Copyright (c) 2014 The Chromium Authors. All rights reserved.
+Compresh uses these tools for compression:
+- [Crunch-OSX](https://github.com/BKcore/crunch-osx), Copyright (c) 2010-2016 Richard Geldreich, Jr. and Binomial LLC
+- [PVRTexToolCLI](https://community.imgtec.com/developers/powervr/tools/pvrtextool/), Copyright (c) 2016 Imagination Technologies
