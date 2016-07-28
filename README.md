@@ -20,7 +20,7 @@ Compressing to different webgl texture formats requires an artist to install mul
 
 ### Extra tid-bits
 - Currently only runs on OS X. Windows support coming.
-- The defaults are setup to work with pixi.js and pixi-compressed-textures plugin which expect premultiplied textures. Phaser currently (July 2017) does not have a compressed texture plugin but will likely expect premultiplied images as well.
+- The defaults are setup to work with pixi.js and pixi-compressed-textures plugin which expect premultiplied textures. Phaser currently (July 2016) does not have a compressed texture plugin but will likely expect premultiplied images as well.
 - It automatically detects if an alpha channel exists and picks the appropriate format
 - If image is not power of two it will automatically resize it to the nearest power of two size.
 - PVRTC (iOS format) requires textures to be square and the image will be resized to square based on the largest length between width and height. Other formats will not be made square.
