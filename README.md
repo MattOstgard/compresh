@@ -1,6 +1,6 @@
 ![compresh screenshot](./help/header.jpg)
 
-# Compresh
+# Compresh v0.1 alpha
 A refreshingly easy WebGL image compression tool.
 
 ### What it is?
