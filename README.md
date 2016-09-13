@@ -1,6 +1,6 @@
 ![compresh screenshot](./help/header.jpg)
 
-# Compresh
+# Compresh v0.1 alpha
 A refreshingly easy WebGL image compression tool.
 
 ### What it is?
@@ -14,12 +14,13 @@ Compressing to different webgl texture formats requires an artist to install mul
 - Unzip the file and then copy the Compresh app to your Applications folder
 
 ### Usage
-- Just drag and drop .png images or folders onto the window and it will convert to multiple formats for different devices and place the new files in a folder called "compressed" in the same folder as the source image. It also creates a quantized png (very small lossy png).
+- Just drag and drop .png images or folders onto the window and Compresh will automatically begin converting
+- Multiple formats for different devices will be placed in a folder called "compressed" within each source images folder. It also creates a quantized png (very small lossy png) as well as preview png images so you can view the quality (this will be part of the GUI later).
 - After conversion, size reports will be displayed for download size (assuming the server is setup to gzip everything) and video memory (VRAM) for each image as well as totals for all images.
 
 ### Extra tid-bits
 - Currently only runs on OS X. Windows support coming.
-- The defaults are setup to work with pixi.js and pixi-compressed-textures plugin which expect premultiplied textures. Phaser currently (July 2017) does not have a compressed texture plugin but will likely expect premultiplied images as well.
+- The defaults are setup to work with pixi.js and pixi-compressed-textures plugin which expect premultiplied textures. Phaser currently (July 2016) does not have a compressed texture plugin but will likely expect premultiplied images as well.
 - It automatically detects if an alpha channel exists and picks the appropriate format
 - If image is not power of two it will automatically resize it to the nearest power of two size.
 - PVRTC (iOS format) requires textures to be square and the image will be resized to square based on the largest length between width and height. Other formats will not be made square.
@@ -36,7 +37,7 @@ ATC is AMD's texture format which is used on some Android phones with Qualcomm c
 
 ### Attribution
 Compresh uses the following technologies:
-- [Electron](https://github.com/electron/electron/blob/master/README.md), Copyright (c) 2014 GitHub Inc.
-- [Chromium](https://www.chromium.org/), Copyright (c) 2014 The Chromium Authors. All rights reserved.
+- [Electron](https://github.com/electron/electron/blob/master/README.md), Copyright (c) 2016 GitHub Inc.
+- [Chromium](https://www.chromium.org/), Copyright (c) 2016 The Chromium Authors. All rights reserved.
 - [Crunch-OSX](https://github.com/BKcore/crunch-osx), Ported by [Thibaut Despoulain](https://github.com/BKcore), Copyright (c) 2010-2016 Richard Geldreich, Jr. and Binomial LLC
 - [PVRTexToolCLI](https://community.imgtec.com/developers/powervr/tools/pvrtextool/), Copyright (c) 2016 Imagination Technologies
