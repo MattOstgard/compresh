@@ -6,7 +6,7 @@ rm -R -f compresh-darwin-x64
 rm -R -f compresh-darwin-x64
 
 # Package it using https://www.npmjs.com/package/electron-packager
-electron-packager ../ --platform=darwin --arch=x64 --overwrite --ignore "/builds" --prune
+electron-packager ../src --platform=darwin --arch=x64 --overwrite --ignore "/builds" --prune
 
 echo Compressing to "compresh_osx.tar.gz"
 

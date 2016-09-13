@@ -152,7 +152,7 @@ class CompreshApp {
         // after build and using exec the current directory returns as '/', so get the absolute path to resources/app/bin
         // /users/matt/dropbox/shared/SG_Vegas_wip/compresh/builds/compresh-darwin-x64/compresh/Contents/macOS/compresh
         this.bin = `${__dirname}/bin/`;
-        this.crunchPath = `${this.bin}osx/crunch`;
+        this.crunchPath = `${this.bin}osx/crunch/crunch`;
         this.pvrTexToolPath = `${this.bin}osx/pvr/PVRTexToolCLI`;
         this.pngquantPath = `${this.bin}osx/pngquant/pngquant`;
         
