@@ -293,52 +293,52 @@ class CompreshApp {
 
             //
             imageInfo.img.onload = ((imageInfo) => {
-                    // Image is not power of two, resize and save to a temporary image
-                    console.warn(`Image is not power of 2, resizing.\nPath: ${imageInfo.path}`);
-                    imageInfo.width = this.nearestPow2(imageInfo.img.width);
-                    imageInfo.height = this.nearestPow2(imageInfo.img.height);
-                    this.hiddenCanvas.width = imageInfo.width;
-                    this.hiddenCanvas.height = imageInfo.height;
-                    this.hiddenCtx.drawImage(imageInfo.img, 0, 0, this.hiddenCanvas.width, this.hiddenCanvas.height);
+                // Image is not power of two, resize and save to a temporary image
+                console.warn(`Image is not power of 2, resizing.\nPath: ${imageInfo.path}`);
+                imageInfo.width = this.nearestPow2(imageInfo.img.width);
+                imageInfo.height = this.nearestPow2(imageInfo.img.height);
+                this.hiddenCanvas.width = imageInfo.width;
+                this.hiddenCanvas.height = imageInfo.height;
+                this.hiddenCtx.drawImage(imageInfo.img, 0, 0, this.hiddenCanvas.width, this.hiddenCanvas.height);
 
-                    // Test all pixels for non-white alpha channel
-                    imageInfo.hasAlpha = false;
-                    let imgData = this.hiddenCtx.getImageData(0, 0, this.hiddenCanvas.width, this.hiddenCanvas.height);
+                // Test all pixels for non-white alpha channel
+                imageInfo.hasAlpha = false;
+                let imgData = this.hiddenCtx.getImageData(0, 0, this.hiddenCanvas.width, this.hiddenCanvas.height);
+                for(let i = 3; i < imgData.data.length; i += 4) {
+                    if (imgData.data[i] < 255) {
+                        imageInfo.hasAlpha = true;
+                        break;
+                    }
+                }
+
+                // premultiply alpha
+                // NOTE: this would be faster as a shader
+                if (this.preMultiplyAlpha) {
                     for(let i = 3; i < imgData.data.length; i += 4) {
-                        if (imgData.data[i] < 255) {
-                            imageInfo.hasAlpha = true;
-                            break;
-                        }
+                        let alpha = imgData.data[i] / 255;
+                        imgData.data[i - 3] *= alpha;
+                        imgData.data[i - 2] *= alpha;
+                        imgData.data[i - 1] *= alpha;
                     }
+                }
+                this.hiddenCtx.putImageData(imgData, 0, 0);
 
-                    // premultiply alpha
-                    // NOTE: this would be faster as a shader
-                    if (this.preMultiplyAlpha) {
-                        for(let i = 3; i < imgData.data.length; i += 4) {
-                            let alpha = imgData.data[i] / 255;
-                            imgData.data[i - 3] *= alpha;
-                            imgData.data[i - 2] *= alpha;
-                            imgData.data[i - 1] *= alpha;
-                        }
+                //
+                let newImg = electron.nativeImage.createFromDataURL(this.hiddenCanvas.toDataURL('image/png'));
+                let pathData = path.parse(imageInfo.path);
+
+                imageInfo.processedPath = `${this.tempDir}${this._tempFiles.length}_-_${pathData.name}.png`;
+                this._tempFiles.push(imageInfo.processedPath);
+                imageInfo.resized = true;
+                
+                // Write the file to disk and mark it as ready to convert
+                fs.writeFile(imageInfo.processedPath, newImg.toPng(), ((imageInfo, err) => {
+                    if (err) throw err;
+                    this._readyToConvert.push(imageInfo.path);
+                    if (this._queue.length === this._readyToConvert.length) {
+                        this.doConversions();
                     }
-                    this.hiddenCtx.putImageData(imgData, 0, 0);
-
-                    //
-                    let newImg = electron.nativeImage.createFromDataURL(this.hiddenCanvas.toDataURL('image/png'));
-                    let pathData = path.parse(imageInfo.path);
-
-                    imageInfo.processedPath = `${this.tempDir}${this._tempFiles.length}_-_${pathData.name}.png`;
-                    this._tempFiles.push(imageInfo.processedPath);
-                    imageInfo.resized = true;
-                    
-                    // Write the file to disk and mark it as ready to convert
-                    fs.writeFile(imageInfo.processedPath, newImg.toPng(), ((imageInfo, err) => {
-                        if (err) throw err;
-                        this._readyToConvert.push(imageInfo.path);
-                        if (this._queue.length === this._readyToConvert.length) {
-                            this.doConversions();
-                        }
-                    }).bind(this, imageInfo));
+                }).bind(this, imageInfo));
             }).bind(this, imageInfo);
         }
     }
