@@ -35,6 +35,18 @@ ATC is AMD's texture format which is used on some Android phones with Qualcomm c
   6. In finder browse to (or press cmd+shift+g and paste this): `~/.wine/drive_c/Program Files/AMD/The Compressonator 1.50/` then double click `TheCompressonator.exe` to run it.
   7. You can now open images and convert them. Access your computer's directories through the `Z:` Drive
 
+
+### Build Instructions
+Compresh is an Electron](https://github.com/electron/electron/blob/master/README.md) app.
+
+To test it just run this form the `src` folder:
+`npm install && npm start`
+
+To build it install electron packager:
+`https://www.npmjs.com/package/electron-packager`
+
+And run `build.sh` in the `src` directory and it will build to a folder called `builds` in the root folder.
+
 ### Attribution
 Compresh uses the following technologies:
 - [Electron](https://github.com/electron/electron/blob/master/README.md), Copyright (c) 2016 GitHub Inc.
