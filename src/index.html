@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>compresh</title>
+    <link rel="stylesheet" type="text/css" href="index.css">
+  </head>
+  <body>
+    <script>
+      require('./index.js');
+    </script>
+
+    <header>
+      <x-title>compresh</x-title>
+      <x-tagline>~ a refreshingly easy webgl image compression tool ~</x-tagline>
+      <x-version>v0.1 alpha</x-version>
+    </header>
+
+    <x-overall-info class="section" style="display: none;">0%</x-overall-info>
+
+
+<!--     <x-image-slots class="section">
+      <x-slot>
+        <x-thumb>
+          <img src="/Users/matt/Dropbox/Shared/SG_Vegas_WIP/texture_compression_gui/test_images/dragon_spin/Portrait layout/Reel Blast FG/Common/LGSymbols/HH_Jack.png"/>
+        </x-thumb>
+        <x-group>
+          <x-status>Farty Pees</x-status>
+          <x-info>Poopy Butts</x-info>
+        </x-group>
+      </x-slot>
+    </x-image-slots> -->
+
+    <x-image-slots class="section" style="display: none;"></x-image-slots>
+
+    <x-dropzone class="section">Drop .png images anywhere</x-dropzone>
+
+    <button class="btn btn-2 btn-2d" onclick="alert('Hello world!')" style="display: none;">Convert!</button>
+
+    <x-description class="section"><div>
+      <p>Drop your .png files in this window to convert to webgl compatible compressed texture formats</p>
+      <ul class="expandableList">
+        <li>DXT as .dds
+          <ul>
+            <li>Also known as S3TC</li>
+            <li>API Level: WebGL 1.0</li>
+            <li>Devices commonly used on: PC and OSX</li>
+            <li>Images without transparency will be exported as: <code>myimage.dxt1.dds</code></li>
+            <li>With transparency: <code>myimage.dxt5.dds</code></li>
+          </ul>
+        </li>
+
+        <li>PVR1 as .pvr
+          <ul>
+            <li>API Level: WebGL 1.0</li>
+            <li>Devices commonly used on: iOS</li>
+          </ul>
+        </li>
+
+        <li>ETC1 as .ktx
+          <ul>
+            <li>API Level: WebGL 1.0</li>
+            <li>Devices commonly used on: Android</li>
+            <li>If alpha is present then an extra image file is created with the naming convention
+              <code>myimage.etc1-alpha.ktx</code></li>
+          </ul>
+        </li>
+
+        <li>ETC2 as .ktx
+          <ul>
+            <li>API Level: WebGL 2.0, GLES 3.0, and OpenGL 4.3</li>
+            <li>Devices commonly used on: Android</li>
+            <li><code>myimage.etc2.ktx</code></li>
+          </ul>
+        </li>
+
+        <li><strike>ATC as .dds</strike>
+          <ul>
+            <li>Also known as ATITC</li>
+            <li>Can't find a ATC converter for mac</li>
+            <li>Devices commonly used on: Android with Qualcomm chipsets</li>
+            <li>Supported by: WebGL 1.0</li>
+            <li><code>myimage.atc.dds</code></li>
+          </ul>
+        </li>
+
+        <li>Lossy PNG
+          <ul>
+            <li>Fallback for canvas mode</li>
+            <li>Compressed using <a href="https://pngquant.org/">pngQuant</a></li>
+          </ul>
+        </li>
+
+        <li><strike>ASTC as .astc</strike>
+          <ul>
+            <li>API Level: No WebGL support, GLES 3.2, and OpenGL 4.3</li>
+            <li>Devices commonly used on: All modern devices as of 2016</li>
+            <li>This is the best texture format available for native games/apps. Most modern gpus and phones support
+              this format. Currently there are no official plans from Khronos group to make it part of any future
+              WebGL specifications.</li>
+            <li>File name example (6x6 is the block size): <code>myimage.6x6.astc</code></li>
+          </ul>
+        </li>
+      </ul>
+    </div></x-description>
+
+    <x-options class="section">
+      <div>
+        <h3>Options:</h3>
+        <p>All options are currently disabled, but the default automatic settings will still work.</p>
+        <ul id="options">
+          <li><input type="checkbox" value="noMipmaps" checked disabled>No mip-maps</li>
+          <li><input type="checkbox" value="forcePow2" checked disabled>Resize to power of 2</li>
+          <li><input type="checkbox" value="forceSquare" checked disabled>Resize to be square</li>
+          <li><input type="checkbox" value="forceSquare" checked disabled>Premultiply transparency
+            <ul><li>In photoshop this is the equivalent making a group with the transparency as a mask and putting the
+            main layer in the group, along with a black layer at the bottom of the group.</li></ul>
+          </li>
+          <li><input type="checkbox" value="getGZipSize" checked disabled>Get gzip size</li>
+        </ul>
+      </div>
+    </x-options>
+  </body>
+</html>

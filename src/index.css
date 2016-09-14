@@ -1,0 +1,273 @@
+
+body {
+    --default-color: #F5EBDD;
+    height: 100%;
+    background: #484440;
+    color: #C7B4AC;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+.section {
+    background-color: #675F58;
+    border-radius: 12px;
+    box-shadow: 0px 3px 23px 0px rgba(0, 32, 47, 0.52);
+    box-sizing: border-box;
+    /*color: #F5EBDD;*/
+    color: var(--default-color);
+    display: block;
+    height: auto;
+    margin: 30px auto 30px auto;
+    padding: 15px;
+    width: 70%;
+}
+
+x-dropzone.section {
+    background: none;
+    border-color: #A79189;
+    border-radius: 12px;
+    border-style: dashed;
+    box-shadow: none;
+    line-height: 25.5px;
+    text-align: center;
+}
+
+x-overall-info.section {
+    text-align: center;
+}
+
+.expandableList li {
+    cursor: pointer;
+    list-style-type: none;    
+    color: #B9E9FF;
+}
+
+.expandableList li li {
+    list-style-type: disc;
+    color: var(--default-color);
+}
+
+ul.expandableList > li > ul {
+    margin-bottom: 16px;
+}
+
+.collapsed:before {
+    content: '+';
+    padding-right: 10px;
+}
+
+.expanded:before {
+    content: '-';
+    padding-right: 10px;
+}
+
+header > * {
+    display: block;
+    text-align: center;
+    font-size: x-large;
+    margin: 10px;
+}
+
+header > x-title {
+    display: block;
+    text-align: center;
+    margin: 0px 10px 10px 10px;
+    font-size: 500%;
+    font-weight: bold;
+    color: #B9E9FF;
+    text-shadow: 0px 3px #607D8B;
+}
+
+header > x-tagline {
+    font-style: oblique;
+    font-family: serif;
+}
+
+header > x-version {
+    font-size: large;
+    font-style: oblique;
+    font-family: serif;
+}
+
+h3 {
+    margin-top: 10px;
+}
+
+x-error {
+    display: block;
+    text-align: center;
+    font-size: 200%;
+    margin-top: 100px;
+    margin-bottom: 200px;
+    font-weight: bold;
+    color: #cb4e4e;
+}
+
+x-description > div {
+    padding: 15px;
+}
+
+x-description > div > p {
+    -webkit-margin-before: 0;
+    -webkit-margin-after: 0;
+}
+
+x-options ul {
+    text-indent: 0px;
+    list-style-type: none;
+}
+
+
+/******************
+Image slot
+******************/
+x-image-slots.section {
+    width: 70%;
+    height: auto;
+    padding: 0;
+    border-color: #A79189;
+    border-style: dashed;
+    line-height: 25.5px;
+    background: none;
+    box-shadow: none;
+}
+
+
+x-image-slots > x-slot {
+    display: block;
+    border: none;
+    border-radius: 12px;
+    padding: 10px 10px;
+    margin: 15px;
+    outline: none;
+    transition: none;
+    text-align: left;
+    box-sizing: border-box;
+    overflow: auto;
+    background-color: #B9E9FF;
+    color: #8A7D77;
+    box-shadow: 0px 3px 23px 0px rgba(0, 32, 47, 0.52);
+}
+
+
+x-image-slots > x-slot.done {
+    background: #47F196;
+    color: #496E80;
+}
+
+x-image-slots > x-slot.error {
+    background: #FF4A3D;
+    color: #496E80;
+}
+
+x-image-slots > x-slot > x-thumb {
+    float: left;
+    margin-left: 0;
+    box-shadow: 0px 1.5px 12px 0px rgba(0, 0, 0, 0.4);
+    background-color: rgba(255, 255, 255, 0.26);
+}
+
+x-image-slots > x-slot > x-thumb > img {
+    display: block;
+    max-width: 128px;
+    max-height: 128px;
+    margin: 0;
+}
+
+x-image-slots > x-slot > x-group {
+    display: block;
+    margin: 5px 5px 5px 145px;
+}
+
+x-image-slots > x-slot > x-group > x-status {
+    display: block;
+    font-weight: bold;
+    font-size: 200%;
+}
+
+x-image-slots > x-slot > x-group > x-info {
+    display: block;
+}
+
+
+/*************************
+Dropdown stuff, not yet implemented
+*************************/
+
+/* CodePen demo Custom Dropdown http://codepen.io/silverdrop/pen/msrcE */
+
+.big {
+    font-size: 1.2em;
+}
+
+.small {
+    font-size: .7em;
+}
+
+.square {
+    width: .7em;
+    height: .7em;
+    margin: .5em;
+    display: inline-block;
+}
+
+.custom-dropdown {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    margin: 10px; /* demo only */
+}
+
+.custom-dropdown select {
+    background-color: #1abc9c;
+    color: #fff;
+    font-size: inherit;
+    padding: .5em;
+    padding-right: 2.5em;
+    border: 0;
+    margin: 0;
+    border-radius: 3px;
+    text-indent: 0.01px;
+    text-overflow: '';
+    -webkit-appearance: button; /* hide default arrow in chrome OSX */
+}
+
+.custom-dropdown::before,
+.custom-dropdown::after {
+    content: "";
+    position: absolute;
+    pointer-events: none;
+}
+
+.custom-dropdown::after { /*  Custom dropdown arrow */
+    content: "\25BC";
+    height: 1em;
+    font-size: .625em;
+    line-height: 1;
+    right: 1.2em;
+    top: 50%;
+    margin-top: -.5em;
+}
+
+.custom-dropdown::before { /*  Custom dropdown arrow cover */
+    width: 2em;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    border-radius: 0 3px 3px 0;
+}
+
+.custom-dropdown select[disabled] {
+    color: rgba(0,0,0,.3);
+}
+
+.custom-dropdown select[disabled]::after {
+    color: rgba(0,0,0,.1);
+}
+
+.custom-dropdown::before {
+    background-color: rgba(0,0,0,.15);
+}
+
+.custom-dropdown::after {
+    color: rgba(0,0,0,.4);
+}
