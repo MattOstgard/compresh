@@ -293,46 +293,6 @@ class CompreshApp {
 
             //
             imageInfo.img.onload = ((imageInfo) => {
-            //     //
-            //     if (this.isPow2(imageInfo.img.width) && this.isPow2(imageInfo.img.height)) {
-            //         imageInfo.resized = false;
-
-            //         imageInfo.width = imageInfo.img.width;
-            //         imageInfo.height = imageInfo.img.height;
-
-            //         this.hiddenCanvas.width = imageInfo.img.width;
-            //         this.hiddenCanvas.height = imageInfo.img.height;
-            //         this.hiddenCtx.drawImage(imageInfo.img, 0, 0, this.hiddenCanvas.width, this.hiddenCanvas.height);
-                    
-            //         // Test all pixels for non-white alpha channel
-            //         imageInfo.hasAlpha = false;
-            //         let imgData = this.hiddenCtx.getImageData(0, 0, this.hiddenCanvas.width, this.hiddenCanvas.height);
-            //         for(let i = 3; i < imgData.data.length; i += 4) {
-            //             if (imgData.data[i] < 255) {
-            //                 imageInfo.hasAlpha = true;
-            //                 break;
-            //             }
-            //         }
-
-            //         // premultiply alpha
-            //         // NOTE: this would be faster as a shader
-            //         if (this.preMultiplyAlpha = true) {
-            //             for(let i = 3; i < imgData.data.length; i += 4) {
-            //                 let alpha = imgData.data[i] / 255;
-            //                 imgData.data[i - 3] *= alpha;
-            //                 imgData.data[i - 2] *= alpha;
-            //                 imgData.data[i - 1] *= alpha;
-            //             }
-            //         }
-            //         this.hiddenCtx.putImageData(imgData, 0, 0);
-
-            //         // Ready to convert
-            //         this._readyToConvert.push(imageInfo.path);
-            //         if (this._queue.length === this._readyToConvert.length) {
-            //             this.doConversions();
-            //         }
-            //     }
-            //     else {
                     // Image is not power of two, resize and save to a temporary image
                     console.warn(`Image is not power of 2, resizing.\nPath: ${imageInfo.path}`);
                     imageInfo.width = this.nearestPow2(imageInfo.img.width);
@@ -353,7 +313,7 @@ class CompreshApp {
 
                     // premultiply alpha
                     // NOTE: this would be faster as a shader
-                    if (this.preMultiplyAlpha = true) {
+                    if (this.preMultiplyAlpha) {
                         for(let i = 3; i < imgData.data.length; i += 4) {
                             let alpha = imgData.data[i] / 255;
                             imgData.data[i - 3] *= alpha;
@@ -379,7 +339,6 @@ class CompreshApp {
                             this.doConversions();
                         }
                     }).bind(this, imageInfo));
-                // }
             }).bind(this, imageInfo);
         }
     }
